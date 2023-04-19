@@ -73,3 +73,7 @@ ML,Machine Learning
 Sean,Shawn
 Sarah,Sara
 ```
+
+### Another Way
+https://python.langchain.com/en/latest/use_cases/summarization.html
+
