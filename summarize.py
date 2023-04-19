@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import argparse
+import time
 
 import openai
 import tiktoken
@@ -29,7 +30,7 @@ openai.api_key = API_KEY
 
 # Only compatable with chat models like gpt-3.5-turbo
 MODEL = "gpt-3.5-turbo"
-SYSTEM_PROMPT = "You are a helpful assistant."
+SYSTEM_PROMPT = "You are a helpful assistant.You answer questions in Chinese"
 
 # Get the encoding for the GPT-2 model for tokenizing text
 enc = tiktoken.get_encoding("gpt2")
@@ -155,6 +156,9 @@ def process_sections(text):
         answers.append(filtered_answer)
         print(filtered_answer)
         n_sections += 1
+        # sleep for limit: 3 / min
+        print("sleep 20s for limit: 3 / min ...")
+        time.sleep(20) 
 
     # Combine the answers into a single string
     full_notes = '\n'.join(answers)
